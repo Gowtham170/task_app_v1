@@ -1,0 +1,71 @@
+.sidebar{
+    background-color: var(--secondary-background-color);
+    width: 16.5%;
+    height: 100vh;
+    padding-block: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-block: 1rem;
+}
+
+.add-task-btn {
+    background-color: var(--primary-blue);
+    border-radius: .6rem;
+    color: var(--btn-text-color);
+    font-size: 1rem;
+    width: 90%;
+    padding: 1rem;
+    margin-left: 4.9%;
+}
+
+.menu {
+    padding-block: 2rem;
+    font-size: 1rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+li a {
+    padding: .8rem 1rem;
+}
+
+.list > .list-item .current {
+    color: var(--list-current);
+    background-color: var(--list-bg-color);
+}
+
+.bar {
+    background-color: var(--list-current);
+    width: .2rem;
+    height: 3.1rem;
+}
+
+.list-item:hover {
+    color: var(--list-current);
+}
+
+/* Javascript styles */
+/* .sidebar {
+    display: none;
+} */

@@ -1,0 +1,53 @@
+.task-details-wrapper {
+    display: flex;
+    width: 16%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.task-panel {
+    background-color: var(--secondary-background-color);
+    width: 100%;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-panel-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-block-end: 2rem;
+}
+
+.greetings {
+    font-size: var(--font-size-xs);
+    color: var(--light-color);
+}
+
+.mode-switch {
+    font-size: var(--font-size-xs);
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-btn {
+    color: var(--primary-blue);
+    /* background-color: #E2E8F0; */
+}
+
+.toggle-out {
+    display: none;
+}
+
+/* Javascript syles */
+.toggle-in.activated {
+    display: none;
+}
+
+.toggle-out.activated {
+    display: block;
+}

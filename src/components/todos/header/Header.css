@@ -1,0 +1,60 @@
+.todo-wrapper {
+    padding-block: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    gap: 1rem;
+}
+
+.menu-icon i{
+    font-size: 1.8rem;
+}
+
+.menu-icon {
+    margin-top: .6rem;
+    /* margin-bottom: 8.5rem; */
+    padding-inline-start: .6rem;
+}
+
+.headline-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: .5rem;
+    padding-right: 7rem;
+}
+
+.headline-banner .headline {
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.headline-desc {
+    font-size: 1rem;
+}
+
+.header-action-wrapper {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.action-btn {
+    background-color: var(--primary-blue);
+    border-radius: .6rem;
+    color: var(--btn-text-color);
+    font-size: .9rem;
+    width: 10rem;
+    padding: 1rem;
+}
+
+.user-profile-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
