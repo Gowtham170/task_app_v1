@@ -59,10 +59,18 @@ const Todo = ({ localDate, listView }) => {
                         </div>
                     </div>
                     <div className='todo-action'>
-                        {
+                        <div className='screen-sm-hidden'>
+                            {
                             show ? (<button className='btn todo-status-btn completed-status-btn' onClick={onChangeHandler}>Completed</button>)
                                  : (<button className='btn todo-status-btn uncompleted-status-btn' onClick={onChangeHandler}>Uncompleted</button>)
-                        }
+                            }
+                        </div>
+                        <div className='screen-lg-hidden'>
+                            {
+                            show ? (<i className="ri-checkbox-circle-fill btn" style={{color: '#73f0cd', fontSize: '2.2rem'}} onClick={onChangeHandler}></i>)
+                                 : (<i className="ri-close-circle-fill btn" style={{color: '#f5e97f', fontSize: '2.2rem'}} onClick={onChangeHandler}></i>)
+                            }     
+                        </div>
                         <div className='todo-action-btn-group btn'>
                             <i className="ri-star-line"></i>
                             <i className="ri-delete-bin-6-fill"></i>

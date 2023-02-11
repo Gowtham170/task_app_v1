@@ -102,9 +102,31 @@ body.dark-theme {
 }
 
 .screen-lg-hidden {
+  display: block;
+}
+
+.screen-sm-hidden {
   display: none;
 }
 
+/* javascript styles */
+.sidebar.activated {
+  display: block !important;
+  width: 20.5rem;
+}
+
+.task-details-wrapper.activated {
+  display: block !important;
+  width: 20.5rem;
+}
+
+.task-details-bg.activated {
+  display: block !important;
+}
+
+.bg-color.activated {
+  display: block !important;
+}
 /* Scrollbar styles */
 
 ::-webkit-scrollbar {
@@ -125,15 +147,9 @@ body.dark-theme {
 } 
 
 /* Media query */
-@media screen and (max-width: 300px) {
-  .task-grid-container {
-    grid-template-columns: repeat(1, minmax(0,1fr)) !important;
-  }
-}
-
 @media screen and (max-width: 1024px){
   .sidebar {
-    display: none;
+    display: none !important;
   }
 
   .task-details-wrapper {
@@ -144,22 +160,58 @@ body.dark-theme {
     width: 100% !important;
   }
 
-  .screen-lg-hidden {
+  .menu-icon {
+    display: block !important;
+  }
+
+  .user-profile-icon {
     display: block !important;
   }
 }
 
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 360px){
   .task-grid-container {
-    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
   }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: 600px){
+  .task-grid-container {
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  }
+
+  .screen-lg-hidden {
+    display: none !important;
+  }
+  
+  .screen-sm-hidden {
+    display: block !important;
+  }
+
+  .search input {
+    width: 17.5rem !important;
+  }
+
+  .data-result {
+    width: 21.5rem !important;
+  }
+
+  .data-noresult {
+    width: 21.5rem !important;
+  }
+
+  .action-btn {
+    position: relative !important; 
+    top: 0 
+  }
+
+}
+
+@media screen and (min-width: 768px){
   .task-grid-container {
     grid-template-columns: repeat(4, minmax(0,1fr)) !important;
   }
+
 }
 
 @media screen and (min-width: 1024px){
@@ -167,6 +219,13 @@ body.dark-theme {
     grid-template-columns: repeat(3, minmax(0,1fr)) !important;
   }
 }
+
+
+
+
+
+
+
 
 
 

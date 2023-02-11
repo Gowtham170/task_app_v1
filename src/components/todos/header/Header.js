@@ -4,13 +4,30 @@ import './Header.css';
 
 const Header = ({localDate}) => {
 
+    const openMenu = () => {
+        const sidebarEle = document.querySelector('#sidebar');
+        const bgColorEle = document.querySelector('#bg-color');
+        sidebarEle.classList.add('activated');
+        bgColorEle.classList.add('activated');
+    }
+
+    const openUserProfile = () => {
+        const userProfileEle = document.querySelector('#task-details');
+        const bgColorEle = document.querySelector('#task-details-bg');
+        userProfileEle.classList.add('activated');
+        bgColorEle.classList.add('activated');
+    }
+
     return (
+        <>
         <div className='todo-wrapper'>
             <div className='header'>
-                <button className='btn menu-icon screen-lg-hidden'>
+                <button className='btn menu-icon' onClick={openMenu}>
                     <i className='ri-menu-3-line'></i>
                 </button>
-                <SearchBar placeholder="Search task" data={todo} />
+                <div className='screen-sm-hidden'>
+                    <SearchBar placeholder="Search task" data={todo} />
+                </div>
             </div>
             <div className='headline-banner'>
                 <span className='headline'>To-Do List</span>
@@ -19,7 +36,7 @@ const Header = ({localDate}) => {
             <div className='header-action'>
                 <div className='header-action-wrapper'>
                     <button className='btn action-btn'>Add new task</button>
-                    <span className='user-profile place-items-center screen-lg-hidden'>
+                    <span className='btn user-profile place-items-center user-profile-icon' onClick={openUserProfile}>
                         <img src={require('../../../assets/user_profile_1.jpg')} 
                             className='user-profile-img'
                             alt='user-profile'></img>
@@ -27,6 +44,10 @@ const Header = ({localDate}) => {
                 </div>
             </div>
         </div>
+        <div className='screen-lg-hidden'>
+            <SearchBar placeholder="Search task" data={todo} />
+        </div>
+        </>
     )
 }
 

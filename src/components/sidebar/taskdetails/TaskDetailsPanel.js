@@ -5,6 +5,13 @@ const TaskDetailsPanel = () => {
 
   const [show, setShow] = useState(false);
 
+  const onClickHandler = () => {
+    const userProfileEle = document.querySelector('#task-details');
+    const bgColorEle = document.querySelector('#task-details-bg');
+    userProfileEle.classList.remove('activated');
+    bgColorEle.classList.remove('activated');
+  }
+
   const changeTheme = () => {
     const bodyElement = document.body;
     const toggleInIcon = document.querySelector('#toggle-in');
@@ -16,11 +23,12 @@ const TaskDetailsPanel = () => {
   }
 
   return (
-    <div className='task-details-wrapper'>
+    <>
+    <div className='task-details-wrapper' id='task-details'>
       <div className='task-panel'>
         <div className='task-panel-header'>
           <div className='greetings'>Hi, User!</div>
-          <span className='user-profile place-items-center'>
+          <span className='user-profile place-items-center' >
             <img src={require('../../../assets/user_profile_1.jpg')} 
                 className='user-profile-img'
                 alt='user-profile'></img>
@@ -41,6 +49,8 @@ const TaskDetailsPanel = () => {
         </div>
       </div>
     </div>
+    <div className='task-details-bg' id='task-details-bg' onClick={onClickHandler}></div>
+    </>
   )
 }
 

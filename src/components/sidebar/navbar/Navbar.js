@@ -2,7 +2,16 @@ import React from 'react';
 import './Navbar.css';
 
 const Sidebar = () => {
+
+    const onClickHandler = () => {
+        const sidebarEle = document.querySelector('#sidebar');
+        const bgColorEle = document.querySelector('#bg-color');
+        sidebarEle.classList.remove('activated');
+        bgColorEle.classList.remove('activated');
+    }
+
   return (
+    <>
     <div className='sidebar' id='sidebar'>
         <div className='navbar'>
             <span>
@@ -47,6 +56,8 @@ const Sidebar = () => {
             </div>
         </div>
     </div>
+    <div className='bg-color' id='bg-color' onClick={onClickHandler}></div>
+    </>
   )
 }
 
