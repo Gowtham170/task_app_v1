@@ -10,6 +10,11 @@ const Sidebar = () => {
         bgColorEle.classList.remove('activated');
     }
 
+    const addTask = () => {
+        const addTaskEle = document.querySelector('#addTodo-container');
+        addTaskEle.classList.add('activated');
+    }
+
   return (
     <>
     <div className='sidebar' id='sidebar'>
@@ -17,7 +22,7 @@ const Sidebar = () => {
             <span>
                 <h6 className='logo'>To-Do List</h6>
             </span>
-                <button className='btn add-task-btn'>
+                <button className='btn add-task-btn' onClick={addTask}>
                     Add new task
                 </button>
             <div className='menu'>

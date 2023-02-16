@@ -9,6 +9,16 @@ const Todo = ({ localDate, listView }) => {
         setShow(!show);
     }
 
+    const editTask = () => {
+        const editTaskEle = document.querySelector('#editTodo-container');
+        editTaskEle.classList.add('activated');
+    }
+
+    const addTask = () => {
+        const editTaskEle = document.querySelector('#addTodo-container');
+        editTaskEle.classList.add('activated');
+    }
+
     return (
         <>
             {(listView) ?
@@ -36,12 +46,12 @@ const Todo = ({ localDate, listView }) => {
                             <div className='todo-action-btn-group btn'>
                                 <i className="ri-star-line"></i>
                                 <i className="ri-delete-bin-6-fill"></i>
-                                <i className="ri-edit-box-line"></i>
+                                <i className="ri-edit-box-line" onClick={editTask}></i>
                             </div>
                         </div>
                     </div>
                 ))}
-                <button className='add-task btn'>Add new task</button>
+                <button className='add-task btn' onClick={addTask}>Add new task</button>
             </div>) :
             (<div className='task-grid-container d-grid'>
             {todos.map((t) => (
@@ -74,12 +84,12 @@ const Todo = ({ localDate, listView }) => {
                         <div className='todo-action-btn-group btn'>
                             <i className="ri-star-line"></i>
                             <i className="ri-delete-bin-6-fill"></i>
-                            <i className="ri-edit-box-line"></i>
+                            <i className="ri-edit-box-line" onClick={editTask}></i>
                         </div>
                     </div>
                 </div>
             ))}
-            <button className='add-task btn'>Add new task</button>
+            <button className='add-task btn' onClick={addTask}>Add new task</button>
         </div>)}
         </>
     )

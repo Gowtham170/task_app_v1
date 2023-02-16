@@ -1,17 +1,17 @@
 import '../Todos.css';
 
-const AddTodo = () => {
+const EditTodo = () => {
 
   const closeTask = () => {
-    const addTaskEle = document.querySelector('#addTodo-container');
-    addTaskEle.classList.remove('activated');
+    const editTaskEle = document.querySelector('#editTodo-container');
+    editTaskEle.classList.remove('activated');
   }
 
   return (
-    <div className='addtodo-container' id='addTodo-container'>
+    <div className='addtodo-container' id='editTodo-container'>
       <div className='addtodo-wrapper'>
         <div className='addtodo-content'>
-          <div className='title'>Add a task</div>
+          <div className='title'>Edit task</div>
           <button className='btn' onClick={closeTask}>
             <i className="ri-close-line"></i>
           </button>
@@ -29,11 +29,11 @@ const AddTodo = () => {
           </select>
           <label className='addtodo-label'><input type='radio' required style={{marginRight: '.4rem'}}/>Mark as important</label>
           <label className='addtodo-label'><input type='radio' required style={{marginRight: '.4rem'}}/>Mark as completed</label>
-          <button className='btn add-task-btn' type='submit'>Add a task</button>
+          <button className='btn add-task-btn' type='submit'>Edit task</button>
         </form>
       </div>
     </div>
   );
 }
 
-export default AddTodo;
+export default EditTodo;

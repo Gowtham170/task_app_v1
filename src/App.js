@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar , Todos, TaskDetailsPanel } from './components';
+import { Navbar , Todos, TaskDetailsPanel, AddTodo, EditTodo } from './components';
 
 const App = () => {
   return (
@@ -7,6 +7,8 @@ const App = () => {
       <Navbar/>
       <Todos/>
       <TaskDetailsPanel/>
+      <AddTodo/>
+      <EditTodo/>
     </div>
   );
 }

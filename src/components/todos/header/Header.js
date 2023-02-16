@@ -18,6 +18,11 @@ const Header = ({localDate}) => {
         bgColorEle.classList.add('activated');
     }
 
+    const addTask = () => {
+        const addTaskEle = document.querySelector('#addTodo-container');
+        addTaskEle.classList.add('activated');
+    }
+
     return (
         <>
         <div className='todo-wrapper'>
@@ -35,7 +40,7 @@ const Header = ({localDate}) => {
             </div>
             <div className='header-action'>
                 <div className='header-action-wrapper'>
-                    <button className='btn action-btn'>Add new task</button>
+                    <button className='btn action-btn' onClick={addTask}>Add new task</button>
                     <span className='btn user-profile place-items-center user-profile-icon' onClick={openUserProfile}>
                         <img src={require('../../../assets/user_profile_1.jpg')} 
                             className='user-profile-img'

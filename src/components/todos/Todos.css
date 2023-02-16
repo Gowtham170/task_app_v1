@@ -58,3 +58,84 @@
 .list-icon.activated {
     display: none;
 }
+
+/* add and edit task */
+.addtodo-container {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, .2);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.addtodo-wrapper {
+    background-color: var(--primary-background-color);
+    border-radius: 0.6rem;
+    padding: 2rem;
+    /* margin-top: 3rem; */
+    /* width: 44.5rem; */
+    width: 25rem;
+    height: 55rem;
+}
+
+.addtodo-content {
+    display: flex;
+    justify-content: space-between;
+    padding-block: .5rem;
+}
+
+
+.addtodo-form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem
+}
+
+.addtodo-form .add-task-btn {
+    margin-top: 1.5rem;
+    padding: 1.1rem;
+    width: 100%;
+    margin-left: 0;
+}
+
+.addtodo-label {
+    display: block;
+    font-size: 1.4rem;
+}
+
+.addtodo-input {
+    background-color: var(--secondary-background-color);
+    border-radius: 0.6rem;
+    width: 100%;
+    padding: 1.1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.3rem;
+    border: 1.4px solid;
+    border-color: transparent;
+    color: var(--light-color);
+}
+
+textarea {
+    font-family: inherit;
+    outline: none;
+}
+
+input[type='radio'] {
+    accent-color: red;
+}
+
+.addtodo-input:hover {
+    border-color: var(--primary-blue);
+}
+
+.addtodo-container.activated {
+    opacity: 1;
+    transform: scale(1);
+}
