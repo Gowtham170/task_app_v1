@@ -89,7 +89,8 @@
     color: #92400E;
 }
 
-.task-grid-container .add-task {
+/*  */
+.add-task {
     background-color: var(--primary-background-color);
     /* height: 90%; */
     height: 19.5rem;

@@ -52,7 +52,7 @@ li a {
     padding: .8rem 1rem;
 }
 
-.list > .list-item .current {
+.list-item[aria-current='page'] {
     color: var(--list-current);
     background-color: var(--list-bg-color);
 }

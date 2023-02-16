@@ -22,7 +22,7 @@ const Sidebar = () => {
                 </button>
             <div className='menu'>
                 <ul className='list'>
-                    <li className='list-item current'>
+                    <li aria-current='page' className='list-item'>
                         <a href='localhost:3000' className='list-link'>
                             Today's tasks
                         </a>
