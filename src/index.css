@@ -109,6 +109,15 @@ body.dark-theme {
   display: none;
 }
 
+textarea {
+    font-family: inherit;
+    outline: none;
+}
+
+input[type='radio'] {
+    accent-color: red;
+}
+
 /* javascript styles */
 .sidebar.activated {
   display: block !important;

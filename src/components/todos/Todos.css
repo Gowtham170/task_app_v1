@@ -122,15 +122,6 @@
     color: var(--light-color);
 }
 
-textarea {
-    font-family: inherit;
-    outline: none;
-}
-
-input[type='radio'] {
-    accent-color: red;
-}
-
 .addtodo-input:hover {
     border-color: var(--primary-blue);
 }
