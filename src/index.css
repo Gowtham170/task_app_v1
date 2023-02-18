@@ -186,6 +186,12 @@ input[type='radio'] {
   .addtodo-wrapper {
     width: 35rem !important;
   }
+
+  .form-group {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    /* row-gap: 1rem; */
+  }
 }
 
 @media screen and (min-width: 600px){
@@ -218,6 +224,24 @@ input[type='radio'] {
     top: 0 
   }
 
+  .title {
+    font-size: 1.3rem !important;
+  }
+
+  .auth-label {
+    font-size: 1.2rem !important;
+  }
+
+  .auth-input {
+    margin-bottom: 1.3rem !important;
+    margin-top: .6rem;
+  }
+
+  .signup-btn {
+    width: 10rem !important;
+    padding: 1rem !important;
+  }
+
 }
 
 @media screen and (min-width: 768px){
@@ -228,6 +252,7 @@ input[type='radio'] {
   .addtodo-wrapper {
     width: 45rem !important;
   }
+
 }
 
 @media screen and (min-width: 1024px){
@@ -239,6 +264,16 @@ input[type='radio'] {
     width: 45rem !important;
     height: 56rem !important;
   }
+
+  .image-wrapper {
+    display: block !important;
+    width: 40%;
+  }
+
+  .auth-content {
+    width: 60% !important;
+  }
+  
 }
 
 
