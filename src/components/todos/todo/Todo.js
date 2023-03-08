@@ -3,6 +3,15 @@ import './Todo.css'
 
 const Todo = ({ localDate, listView }) => {
 
+    const [values, setValues] = useState(() => ({
+        title: '',
+        date: '',
+        description: '',
+        category: '',
+        priority: '',
+        status: '',
+      }));
+
     const [show, setShow] = useState(false);
 
     const onChangeHandler = () => {
@@ -15,8 +24,8 @@ const Todo = ({ localDate, listView }) => {
     }
 
     const addTask = () => {
-        const editTaskEle = document.querySelector('#addTodo-container');
-        editTaskEle.classList.add('activated');
+        const addTaskEle = document.querySelector('#addTodo-container');
+        addTaskEle.classList.add('activated');
     }
 
     return (

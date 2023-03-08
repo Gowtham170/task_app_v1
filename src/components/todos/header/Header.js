@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import SearchBar from '../../searchbar/SearchBar';
 import './Header.css';
 
 const Header = ({localDate}) => {
+
+    const [image, setImage] = useState();
+
+    const getuser = async () => {
+        try {
+          const res = await axios.get('http://localhost:4000/user', {withCredentials: true}); 
+          setImage(res.data.picturePath);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    
+      useEffect(() => {
+        getuser();
+      }, []);
 
     const openMenu = () => {
         const sidebarEle = document.querySelector('#sidebar');
@@ -42,7 +58,7 @@ const Header = ({localDate}) => {
                 <div className='header-action-wrapper'>
                     <button className='btn action-btn' onClick={addTask}>Add new task</button>
                     <span className='btn user-profile place-items-center user-profile-icon' onClick={openUserProfile}>
-                        <img src={require('../../../assets/user_profile_1.jpg')} 
+                        <img src={image} 
                             className='user-profile-img'
                             alt='user-profile'></img>
                     </span>

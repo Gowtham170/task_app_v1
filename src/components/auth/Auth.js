@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 import './Auth.css';
 import { signUpSchema, loginSchema } from '../schema/index';
 
@@ -8,7 +11,7 @@ const signUpInitialValues = {
   lastname: '',
   email: '',
   password: '',
-  userprofile: ''
+  imageFile: ''
 };
 
 const loginInitialValues = {
@@ -17,20 +20,62 @@ const loginInitialValues = {
 };
 
 const Auth = () => {
-
+  const ref = useRef();
+  const navigate = useNavigate();
   const signUp = useFormik({
     initialValues: signUpInitialValues,
     validationSchema: signUpSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async(values, {resetForm}) => {
+      const fd = new FormData();
+      fd.append('firstname', values.firstname);
+      fd.append('lastname', values.lastname);
+      fd.append('email', values.email);
+      fd.append('password', values.password);
+      fd.append('imageFile', values.imageFile);
+      try {
+        const res = await axios.post('http://localhost:4000/register', fd);
+        console.log(res);
+        resetForm({values: ''});
+        ref.current.value = '';
+        toast.success('registration successful');
+      } catch(err) {
+        console.log(err);
+        toast.error('registration failure');
+      }
     }
   });
 
   const login = useFormik({
     initialValues: loginInitialValues,
     validationSchema: loginSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, {resetForm}) => {
+      // try {
+      //   const res = await axios.post('http://localhost:4000/login', values);
+      //   console.log(res);
+      //   resetForm({values: ''});
+      //   navigate('/');
+      // } catch(err) {
+      //   console.log(err);
+      // }
+      fetch('http://localhost:4000/login', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(values)
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data);
+        resetForm({values: ''});
+        navigate('/');
+        toast.success('login successful');
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error('login failure');
+      });
     }
   });
 
@@ -51,7 +96,8 @@ const Auth = () => {
             <div className='form-group d-grid'>
               <label htmlFor='firstname' className='auth-label'>
                 Firstname 
-                <input id='firstname' 
+                <input id='firstname'
+                  name='firstname' 
                   className='auth-input' 
                   type='text'
                   value={signUp.values.firstname}
@@ -62,6 +108,7 @@ const Auth = () => {
               <label htmlFor='lastname' className='auth-label'>
                 Lastname 
                 <input id='lastname' 
+                  name='lastname'
                   className='auth-input' 
                   type='text'
                   value={signUp.values.lastname}
@@ -72,6 +119,7 @@ const Auth = () => {
               <label htmlFor='email' className='auth-label'>
                 Email 
                 <input id='email' 
+                  name='email'
                   className='auth-input' 
                   type='email'
                   value={signUp.values.email}
@@ -82,6 +130,7 @@ const Auth = () => {
               <label htmlFor='password' className='auth-label'>
                 Password 
                 <input id='password' 
+                  name='password'
                   className='auth-input' 
                   type='password'
                   value={signUp.values.password}
@@ -89,20 +138,23 @@ const Auth = () => {
                   onBlur={signUp.handleBlur}/>
                 {<p className='form-error'>{signUp.errors.password}</p>}
               </label>
-              <label htmlFor='userprofile' className='auth-label'>
-                User Profile 
-                <input id='userprofile' 
+              <label htmlFor='imageFile' className='auth-label'>
+                Upload Profile 
+                <input id='imageFile'
+                  ref={ref}
+                  name='imageFile' 
                   className='auth-input' 
                   type='file'
-                  value={signUp.values.userprofile}
-                  onChange={signUp.handleChange}
+                  accept='image/*'
+                  onChange={(e) => signUp.setFieldValue('imageFile', e.currentTarget.files[0])}
                   onBlur={signUp.handleBlur}/>
-                {<p className='form-error'>{signUp.errors.userprofile}</p>}
+                {<p className='form-error'>{signUp.errors.imageFile}</p>}
               </label>
             </div>
             <button className='btn signup-btn' type='submit'>Sign up</button>
           </form>
-        </div>) :
+        </div>) 
+         :
         (<div className='auth-content '>
           <form className='auth-form' onSubmit={login.handleSubmit}>
             <div className='title'>Login</div>
