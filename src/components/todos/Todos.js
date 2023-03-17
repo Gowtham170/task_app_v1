@@ -42,7 +42,7 @@ const Todos = () => {
                     </div>
                 </div>
 
-                <Todo localDate={localDate} listView={view}/>
+                <Todo listView={view}/>
             </div>
             <div className='footer'>To-do list</div>
         </div>

@@ -17,8 +17,7 @@ const App = () => {
         style: {
           fontSize: '1rem'
         }
-      }}
-      ></Toaster>
+      }}/>
       <Router>
         <Routes>
           <Route element={<PrivateRoutes/>}>

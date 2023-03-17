@@ -29,6 +29,7 @@
     /* height: 51rem; */
     height: fit-content;
     padding: 2.6rem;
+    position: relative;
 }
 
 .title {
@@ -100,9 +101,14 @@ input[type=file]::file-selector-button {
 }
 
 .form-error {
+    /* background-color: var(--primary-background-color); */
     font-size: 1.1rem;
     padding-bottom: .5rem;
     color: red;
+    /* position: absolute;
+    right: 4rem;
+    z-index: 999; */
+
 }
 
 .signup-form .form-error {

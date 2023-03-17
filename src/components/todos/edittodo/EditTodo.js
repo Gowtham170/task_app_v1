@@ -1,11 +1,35 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../Todos.css';
 
 const EditTodo = () => {
+
+  const [values, setValues] = useState();
 
   const closeTask = () => {
     const editTaskEle = document.querySelector('#editTodo-container');
     editTaskEle.classList.remove('activated');
   }
+
+  const getSpecificTask = async (e) => {
+    try {
+      const res = await axios.get('http://localhost:4000/users/todos/', {withCredentials: true});
+      return res.data;
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+useEffect(() => {
+    (
+      async () => {
+        const data = await getSpecificTask();
+        setValues(data);
+      }
+    )();
+}, []);
+
+console.log(values);
 
   return (
     <div className='addtodo-container' id='editTodo-container'>
