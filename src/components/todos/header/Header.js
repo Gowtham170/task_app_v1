@@ -5,20 +5,47 @@ import './Header.css';
 
 const Header = ({localDate}) => {
 
+    const [value, setValue] = useState([]);
     const [image, setImage] = useState();
+
+    const getAllTaskTitle = async (id) => {
+        try {
+          const res = await axios.get('http://localhost:4000/users/todos/title', { withCredentials: true });
+          return res.data;
+        } catch (err) {
+          console.log(err);
+        }
+    }
 
     const getuser = async () => {
         try {
           const res = await axios.get('http://localhost:4000/user', {withCredentials: true}); 
-          setImage(res.data.picturePath);
+          return (res.data.picturePath);
+        //   setImage(res.data.picturePath);
         } catch (err) {
           console.log(err);
         }
       }
-    
+
       useEffect(() => {
-        getuser();
-      }, []);
+        (
+            async () => {
+                const image = await getuser();
+                setImage(image);
+                const data = await getAllTaskTitle();
+                setValue(data);
+              }
+        )();
+    }, []);
+    
+    //   useEffect(() => {
+    //     getuser();
+    //     async () => {
+    //         const data = await getAllTaskTitle();
+    //         setValue(data);
+    //       //   setFilteredData(data)
+    //       }
+    //   }, []);
 
     const openMenu = () => {
         const sidebarEle = document.querySelector('#sidebar');
@@ -47,7 +74,7 @@ const Header = ({localDate}) => {
                     <i className='ri-menu-3-line'></i>
                 </button>
                 <div className='screen-sm-hidden'>
-                    <SearchBar placeholder="Search task" data={todo} />
+                    <SearchBar placeholder="Search task" data={value} />
                 </div>
             </div>
             <div className='headline-banner'>
@@ -66,7 +93,7 @@ const Header = ({localDate}) => {
             </div>
         </div>
         <div className='screen-lg-hidden'>
-            <SearchBar placeholder="Search task" data={todo} />
+            <SearchBar placeholder="Search task" data={value} />
         </div>
         </>
     )
@@ -74,8 +101,8 @@ const Header = ({localDate}) => {
 
 export default Header;
 
-const todo = [
-    { title: 'Todo-1' },
-    { title: 'demo' },
-    { title: 'example' }
-];
+// const todo = [
+//     { title: 'Todo-1' },
+//     { title: 'demo' },
+//     { title: 'example' }
+// ];

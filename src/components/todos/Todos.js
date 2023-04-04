@@ -1,8 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import './Todos.css';
 import Header from './header/Header';
 import Todo from './todo/Todo';
-import { useState } from 'react';
+import AddTodo from "./addtodo/AddTodo";
 
 const Todos = () => {
 
@@ -10,6 +10,7 @@ const Todos = () => {
     const localDate = date.toDateString().slice(4, 15);
 
     const [view, setView] = useState(false);
+    // const [openEditModel, setOpenEditModel] = useState(false);
 
     const onClickHandler = () => {
         setView(!view);
@@ -43,6 +44,7 @@ const Todos = () => {
                 </div>
 
                 <Todo listView={view}/>
+                <AddTodo/>
             </div>
             <div className='footer'>To-do list</div>
         </div>

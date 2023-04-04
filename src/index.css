@@ -136,8 +136,8 @@ input[type='radio'] {
 .bg-color.activated {
   display: block !important;
 }
-/* Scrollbar styles */
 
+/* Scrollbar styles */
 ::-webkit-scrollbar {
   width: .5rem;
   border-radius: 1rem;

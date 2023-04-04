@@ -1,8 +1,10 @@
 import Navbar from "./sidebar/navbar/Navbar";
 import Todos from "./todos/Todos";
 import TaskDetailsPanel from "./sidebar/taskdetails/TaskDetailsPanel";
+import DeleteModel from "./deletemodel/DeleteModel";
 import AddTodo from "./todos/addtodo/AddTodo";
 import EditTodo from "./todos/edittodo/EditTodo";
+
 
 const Home = () => {
     return (
@@ -10,8 +12,9 @@ const Home = () => {
             <Navbar/>
             <Todos/>
             <TaskDetailsPanel/>
-            <AddTodo/>
-            <EditTodo/>
+            {/* <DeleteModel/> */}
+            {/* <AddTodo/> */}
+            {/* <EditTodo/> */}
         </>
     )
 }

@@ -1,13 +1,12 @@
 .sidebar{
     background-color: var(--secondary-background-color);
     width: 16.5%;
-    /* width: 20rem; */
     height: 100vh;
     padding-block: 2rem;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 99;
 }
 
 .navbar {

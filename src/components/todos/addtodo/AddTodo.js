@@ -7,23 +7,23 @@ const initialValues = {
   date: '',
   description: '',
   category: '',
-  priority: false,
-  status: false
+  // priority: false,
+  // status: false
 }
 
 const AddTodo = () => {
 
   const [values, setValues] = useState(initialValues);
-  // const [priority, setPriority] = useState(false);
-  // const [status, setStatus] = useState(false);
+  const [priority, setPriority] = useState();
+  const [status, setStatus] = useState();
 
   const handleChange = (e) =>{
     setValues({
       ...values,
       [e.target.name]: e.target.value,
     });
-    // setPriority(e.target.value);
-    // setStatus(e.target.value);
+    setPriority(e.target.checked);
+    setStatus(e.target.checked);
   };
 
   const formHandler = async (e) => {
@@ -34,8 +34,8 @@ const AddTodo = () => {
       date: values.date,
       description: values.description,
       category: values.category,
-      priority: values.priority,
-      status: values.status
+      priority: priority,
+      status: status
     }
 
     try {
@@ -50,10 +50,9 @@ const AddTodo = () => {
       date: '',
       description: '',
       category: '',
-      priority: '',
-      status: ''
-    })
-
+      // priority: '',
+      // status: ''
+    });
     
   }
 
@@ -96,8 +95,7 @@ const AddTodo = () => {
             name='description'
             value={values.description}
             onChange={handleChange}
-            className='addtodo-input' 
-            required 
+            className='addtodo-input'  
             placeholder='e.g, study for the test'/>
 
           <label htmlFor='category' className='addtodo-label'>Select a directory </label>
@@ -114,23 +112,21 @@ const AddTodo = () => {
           <label htmlFor='priority' className='addtodo-label btn'>
             <input id='priority' 
               name='priority' 
-              value='true'
-              checked={values.priority === 'true'}
+              type='checkbox' 
               onChange={handleChange}
-              type='radio' 
               style={{marginRight: '.4rem'}}/>
             Mark as important 
           </label>
-          <label className='addtodo-label btn'>
+
+          <label htmlFor='status' className='addtodo-label btn'>
             <input id='status' 
               name='status' 
-              value='true'
-              checked={values.status === 'true'}
+              type='checkbox' 
               onChange={handleChange}
-              type='radio'  
               style={{marginRight: '.4rem'}}/>
             Mark as completed
           </label>
+
           <button className='btn add-task-btn' type='submit'>Add a task</button>
         </form>
       </div>
@@ -139,3 +135,16 @@ const AddTodo = () => {
 }
 
 export default AddTodo;
+
+
+
+{/* <label htmlFor='priority' className='addtodo-label btn'>
+            <input id='priority' 
+              name='priority' 
+              value='true'
+              checked={values.priority === 'true'}
+              onChange={handleChange}
+              type='checkbox' 
+              style={{marginRight: '.4rem'}}/>
+            Mark as important 
+          </label> */}
